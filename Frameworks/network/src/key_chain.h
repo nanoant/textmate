@@ -20,7 +20,7 @@ struct PUBLIC key_chain_t
 		std::string const& identity () const { return _identity; }
 		std::string const& name () const     { return _name; }
 
-		operator SecKeyRef () const { setup(); return _sec_key; }
+		operator EVP_PKEY* () const { setup(); return _ssl_key; }
 
 	private:
 		friend struct key_chain_t;
@@ -28,7 +28,9 @@ struct PUBLIC key_chain_t
 		std::string _name;
 		std::string _key_data;
 
-		mutable SecKeyRef _sec_key;
+		mutable EVP_PKEY* _ssl_key;
+		mutable BIO* _ssl_bio;
+		mutable DSA* _ssl_data;
 
 		void init () const;
 		bool setup () const;

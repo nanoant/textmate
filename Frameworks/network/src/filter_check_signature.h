@@ -13,7 +13,6 @@ namespace network
 	struct PUBLIC check_signature_t : filter_t
 	{
 		check_signature_t (key_chain_t const& keyChain, std::string const& signeeHeader, std::string const& signatureHeader);
-		~check_signature_t ();
 
 		bool setup ();
 		bool receive_header (std::string const& header, std::string const& value);
@@ -30,7 +29,7 @@ namespace network
 		std::string const _signee_header;
 		std::string const _signature_header;
 
-		CFMutableDataRef _data;
+		EVP_MD_CTX ctx;
 
 		std::string _signee    = NULL_STR;
 		std::string _signature = NULL_STR;
