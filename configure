@@ -17,7 +17,7 @@ function error () { printf >&2 "%s\n\nPlease see README.md for build instruction
 name=TextMate
 ver=2.0
 rev=1
-min_os=10.7
+min_os=10.6
 
 rev=$(( $(curl -sf "${rest_api}/releases/nightly/revision")+1 )) || \
 	if test -d .git && which -s git; then
@@ -71,7 +71,7 @@ test -L "${builddir}/include/boost" || error "*** boost not installed."
 # ==================================
 
 xcodedir=/Developer
-sdk="/Developer/SDKs/${sdk:-MacOSX10.7}.sdk"
+sdk="/Developer/SDKs/${sdk:-MacOSX10.6}.sdk"
 
 if which -s xcode-select; then
 	xcodedir=$(xcode-select -print-path)
