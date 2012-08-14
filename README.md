@@ -1,3 +1,9 @@
+## 10.6 compatibility branch for current TM2 master
+
+**WARNING:** Please do not fork from this branch as I will be occasionally rebasing back to current `mater` and adding reverts of some *10.6* incompatible commits.
+
+**NOTE:** If you get *clang is too old* or *clang is not found* please install more recent clang version as [described here](#clang-32--40).
+
 # TextMate
 
 This repository contains the source code for TextMate 2, a text editor for OS X 10.7+.
