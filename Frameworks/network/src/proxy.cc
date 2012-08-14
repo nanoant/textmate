@@ -11,9 +11,6 @@ static proxy_settings_t user_pw_settings (std::string const& server, UInt32 port
 	D(DBF_Proxy, bug("%s:%zu\n", server.c_str(), (size_t)port););
 	std::string user = NULL_STR, pw = NULL_STR;
 
-	cf::string_t cfServer = cf::wrap(server);
-	cf::number_t cfPort   = cf::wrap(port);
-
 	CFTypeRef keys[] = {
 		kSecMatchLimit, kSecReturnRef,
 		kSecClass,
@@ -25,8 +22,8 @@ static proxy_settings_t user_pw_settings (std::string const& server, UInt32 port
 		kSecMatchLimitAll, kCFBooleanTrue,
 		kSecClassInternetPassword,
 		kSecAttrProtocolHTTPProxy,
-		cfPort,
-		cfServer
+		cf::wrap(port),
+		cf::wrap(server)
 	};
 	CFDictionaryRef query = CFDictionaryCreate(NULL, keys, vals, sizeofA(keys), NULL, NULL);
 	
