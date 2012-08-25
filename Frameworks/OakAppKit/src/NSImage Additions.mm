@@ -1,5 +1,13 @@
 #import "NSImage Additions.h"
 
+@implementation NSBundle (ImageFromBundle)
+- (NSImage*)imageForResource:(NSString *)name
+{
+	NSString* path = [self pathForImageResource:name];
+	return path ? [[[NSImage alloc] initWithContentsOfFile:path] autorelease] : nil;
+}
+@end
+
 @implementation NSImage (ImageFromBundle)
 + (NSImage*)imageNamed:(NSString*)aName inSameBundleAsClass:(id)aClass
 {
