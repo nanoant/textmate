@@ -3,6 +3,8 @@
 
 #import "prelude.c"
 
+#define blend blend_enum
+
 #import <AudioToolbox/AudioToolbox.h>
 #import <Carbon/Carbon.h>
 #import <CommonCrypto/CommonDigest.h>
@@ -10,6 +12,8 @@
 #import <CoreServices/CoreServices.h>
 #import <Security/Security.h>
 #import <SystemConfiguration/SystemConfiguration.h>
+
+#undef blend
 
 #import <asl.h>
 #import <libkern/OSAtomic.h>
