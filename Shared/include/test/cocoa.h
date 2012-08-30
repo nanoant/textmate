@@ -4,6 +4,19 @@
 #include <text/tokenize.h>
 #include <oak/oak.h>
 
+#if !defined(MAC_OS_X_VERSION_10_6) || (MAC_OS_X_VERSION_MAX_ALLOWED < MAC_OS_X_VERSION_10_6)
+enum {
+	NSApplicationActivationPolicyRegular,
+	NSApplicationActivationPolicyAccessory,
+	NSApplicationActivationPolicyProhibited
+};
+typedef NSInteger NSApplicationActivationPolicy;
+
+@interface NSApplication (SnowLeopard)
+- (BOOL)setActivationPolicy:(NSApplicationActivationPolicy)activationPolicy;
+@end
+#endif
+
 static BOOL IsGUITestsEnabled (std::string const& testName)
 {
 	std::set<std::string> tests;
@@ -29,7 +42,8 @@ static void OakSetupApplicationWithView (NSView* aView, std::string testName = N
 		return;
 
 	[NSApplication sharedApplication];
-	[NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
+	if([NSApp respondsToSelector:@selector(setActivationPolicy:)])
+		[NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
 	[NSApp activateIgnoringOtherApps:YES];
 
 	NSString* appName = [[NSProcessInfo processInfo] processName];
