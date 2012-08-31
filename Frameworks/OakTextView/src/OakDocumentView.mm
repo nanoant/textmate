@@ -718,20 +718,20 @@ static std::string const kBookmarkType = "bookmark";
 
 - (NSImage*)imageForState:(NSUInteger)state forColumnWithIdentifier:(id)identifier
 {
-	NSArray* array = gutterImages[identifier];
-	return array && state < [array count] && array[state] != [NSNull null] ? array[state] : nil;
+	NSArray* array = [gutterImages objectForKey:identifier];
+	return array && state < [array count] && [array objectAtIndex:state] != [NSNull null] ? [array objectAtIndex:state] : nil;
 }
 
 - (NSImage*)hoverImageForState:(NSUInteger)state forColumnWithIdentifier:(id)identifier
 {
-	NSArray* array = gutterHoverImages[identifier];
-	return array && state < [array count] && array[state] != [NSNull null] ? array[state] : nil;
+	NSArray* array = [gutterHoverImages objectForKey:identifier];
+	return array && state < [array count] && [array objectAtIndex:state] != [NSNull null] ? [array objectAtIndex:state] : nil;
 }
 
 - (NSImage*)pressedImageForState:(NSUInteger)state forColumnWithIdentifier:(id)identifier
 {
-	NSArray* array = gutterPressedImages[identifier];
-	return array && state < [array count] && array[state] != [NSNull null] ? array[state] : nil;
+	NSArray* array = [gutterPressedImages objectForKey:identifier];
+	return array && state < [array count] && [array objectAtIndex:state] != [NSNull null] ? [array objectAtIndex:state] : nil;
 }
 
 // =============================
