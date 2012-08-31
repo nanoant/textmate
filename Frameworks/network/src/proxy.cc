@@ -15,7 +15,7 @@ static proxy_settings_t user_pw_settings (std::string const& server, UInt32 port
 	SecKeychainAttribute attrs[3] = {
 		{ kSecProtocolItemAttr, sizeof(protocol), &protocol,            },
 		{ kSecPortItemAttr,     sizeof(port),     &port,                },
-		{ kSecServerItemAttr,   server.size(),    (void*)server.data(), }
+		{ kSecServerItemAttr,   static_cast<UInt32>(server.size()), (void*)server.data(), }
 	};
 	SecKeychainAttributeList attrList = { sizeofA(attrs), attrs };
 
