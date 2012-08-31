@@ -2,6 +2,8 @@
 
 **WARNING:** Please do not fork from this branch as I will be occasionally rebasing back to current `mater` and adding reverts of some *10.6* incompatible commits.
 
+**IMPORTANT:** You need [libc++](http://libcxx.llvm.org/) installed on your *10.6* machine in order to compile and run TM2 starting release 9292.
+
 **NOTE:** If you get *clang is too old* or *clang is not found* please install more recent clang version as [described here](#clang-32--40).
 
 # TextMate
