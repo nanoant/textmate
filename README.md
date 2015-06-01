@@ -1,6 +1,6 @@
 ## 10.6 compatibility branch for current TM2 master
 
-**WARNING:** Please do not fork from this branch as I will be occasionally rebasing back to current `mater` and adding reverts of some *10.6* incompatible commits.
+**WARNING:** This branch is severely outdated comparing to the latest TM2 `master` and I am unlikely going to update it.
 
 **IMPORTANT:** You need [libc++](http://libcxx.llvm.org/) installed on your *10.6* machine in order to compile and run TM2 starting release 9292.
 
